@@ -1,0 +1,16 @@
+{
+  "name": "motion-commerce-react",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix motion-commerce run dev -- -p 8000",
+    "build": "npm --prefix motion-commerce install && npm --prefix motion-commerce run build",
+    "start": "npm --prefix motion-commerce run start -- -p 8000",
+    "dev:vite": "npm --prefix motion-commerce run dev:vite"
+  },
+  "dependencies": {
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  }
+}
