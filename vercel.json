@@ -1,0 +1,6 @@
+{
+  "installCommand": "npm install && cd motion-commerce && npm install",
+  "buildCommand": "cd motion-commerce && npm run build",
+  "outputDirectory": "motion-commerce/.next",
+  "framework": "nextjs"
+}
