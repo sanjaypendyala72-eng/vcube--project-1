@@ -4,8 +4,9 @@
   "version":"1.0.0",
   "type":"module",
   "scripts": {
-    "dev": "next dev -p 8000",
-    "build": "next build",
+    "prebuild": "node scripts/prebuild.js",
+    "dev": "node scripts/prebuild.js && next dev -p 8000",
+    "build": "node scripts/prebuild.js && next build",
     "start": "next start -p 8000",
     "dev:vite": "vite",
     "build:vite": "vite build"
