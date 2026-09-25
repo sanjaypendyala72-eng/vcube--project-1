@@ -2,5 +2,12 @@
   "installCommand": "npm install --legacy-peer-deps && cd motion-commerce && npm install --legacy-peer-deps",
   "buildCommand": "cd motion-commerce && npm run build",
   "outputDirectory": "motion-commerce/.next",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/nexora",
+      "permanent": false
+    }
+  ]
 }
