@@ -1,0 +1,255 @@
+/* ==========================================================================
+   MINI HEADER — ANIMATED BRAND TICKER
+   NEXORA ✦ NEXORA ✦ NEXORA ✦ ... infinite seamless marquee
+   ========================================================================== */
+
+.mini-header {
+  position: relative;
+  width: 100%;
+  height: 46px;
+  background: #050507;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  z-index: 30;
+  user-select: none;
+  cursor: default;
+}
+
+/* ---- Subtle animated golden glow background ---- */
+.mini-header-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.12;
+}
+
+.glow-orb-1 {
+  width: 200px;
+  height: 60px;
+  background: radial-gradient(ellipse, rgba(212, 175, 55, 0.5), transparent 70%);
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  animation: glowDrift1 22s ease-in-out infinite alternate;
+}
+
+.glow-orb-2 {
+  width: 250px;
+  height: 50px;
+  background: radial-gradient(ellipse, rgba(245, 215, 127, 0.4), transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: glowDrift2 18s ease-in-out infinite alternate;
+}
+
+.glow-orb-3 {
+  width: 180px;
+  height: 55px;
+  background: radial-gradient(ellipse, rgba(212, 175, 55, 0.35), transparent 70%);
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+  animation: glowDrift3 25s ease-in-out infinite alternate;
+}
+
+@keyframes glowDrift1 {
+  0% { transform: translateY(-50%) translateX(0); opacity: 0.08; }
+  50% { opacity: 0.18; }
+  100% { transform: translateY(-50%) translateX(120px); opacity: 0.10; }
+}
+
+@keyframes glowDrift2 {
+  0% { transform: translate(-50%, -50%) translateX(0); opacity: 0.10; }
+  50% { opacity: 0.22; }
+  100% { transform: translate(-50%, -50%) translateX(-80px); opacity: 0.12; }
+}
+
+@keyframes glowDrift3 {
+  0% { transform: translateY(-50%) translateX(0); opacity: 0.06; }
+  50% { opacity: 0.15; }
+  100% { transform: translateY(-50%) translateX(-100px); opacity: 0.08; }
+}
+
+/* ---- Border accents ---- */
+.mini-header-border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.15) 30%, rgba(212, 175, 55, 0.25) 50%, rgba(212, 175, 55, 0.15) 70%, transparent 100%);
+}
+
+.mini-header-border-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.2) 30%, rgba(245, 215, 127, 0.35) 50%, rgba(212, 175, 55, 0.2) 70%, transparent 100%);
+}
+
+/* ---- Ticker Track Container ---- */
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: tickerScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.mini-header.direction-right .ticker-track {
+  animation-direction: reverse;
+}
+
+.mini-header.is-hovered .ticker-track {
+  animation-duration: 56s; /* Slow down on hover */
+}
+
+/* ---- Ticker Strip ---- */
+.ticker-strip {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ---- NEXORA word styling ---- */
+.ticker-word {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: #d4af37 !important;
+  padding: 0 22px;
+  position: relative;
+  text-shadow:
+    0 0 12px rgba(212, 175, 55, 0.25),
+    0 0 30px rgba(212, 175, 55, 0.08);
+  -webkit-text-fill-color: #d4af37 !important;
+}
+
+.ticker-strip-1 .ticker-word:nth-child(odd) {
+  animation-delay: -2s;
+}
+
+.ticker-strip-2 .ticker-word:nth-child(even) {
+  animation-delay: -4s;
+}
+
+@keyframes tickerShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ---- Separator diamond ---- */
+.ticker-separator {
+  font-size: 9px;
+  color: #d4af37;
+  opacity: 0.6;
+  padding: 0 8px;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* ---- Infinite scroll keyframes ----
+   Moves the entire track by exactly 50% (one strip width) to create seamless loop */
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- Reduced Motion ---- */
+.mini-header.reduced-motion .ticker-track {
+  animation: none;
+}
+
+.mini-header.reduced-motion .ticker-word {
+  animation: none;
+  -webkit-text-fill-color: #d4af37 !important;
+  background: none;
+}
+
+.mini-header.reduced-motion .glow-orb {
+  animation: none;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .mini-header {
+    height: 40px;
+  }
+  .ticker-word {
+    font-size: 11.5px;
+    letter-spacing: 4px;
+    padding: 0 16px;
+  }
+  .ticker-separator {
+    font-size: 8px;
+    padding: 0 6px;
+  }
+  .ticker-track {
+    animation-duration: 22s; /* Slightly faster on mobile */
+  }
+  .mini-header.is-hovered .ticker-track {
+    animation-duration: 44s;
+  }
+}
+
+@media (max-width: 480px) {
+  .mini-header {
+    height: 36px;
+  }
+  .ticker-word {
+    font-size: 10.5px;
+    letter-spacing: 3.5px;
+    padding: 0 12px;
+  }
+}
+
+/* ==========================================================================
+   MINI HEADER THEME (DARK GOLD TICKER PRESERVED IN BOTH MODES)
+   ========================================================================== */
+[data-theme="light"] .mini-header {
+  background: #050507;
+}
+
+[data-theme="light"] .ticker-word {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #d4af37 25%,
+    #fff3cf 50%,
+    #ffd875 75%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+[data-theme="light"] .ticker-separator {
+  color: #d4af37;
+  opacity: 0.85;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.45);
+}
+
+[data-theme="light"] .mini-header-border-top,
+[data-theme="light"] .mini-header-border-bottom {
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.28) 50%, transparent 100%);
+}
+

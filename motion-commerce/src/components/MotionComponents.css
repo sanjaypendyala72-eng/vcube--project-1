@@ -1,0 +1,798 @@
+/* ==========================================================================
+   NEXORA MASTER MOTION DESIGN SYSTEM CSS
+   35 Motion Effects & Token Variables
+   ========================================================================== */
+
+:root {
+  --motion-fast: 180ms;
+  --motion-normal: 320ms;
+  --motion-medium: 500ms;
+  --motion-slow: 750ms;
+  --motion-cinematic: 1100ms;
+  --motion-stagger: 80ms;
+  --ease-primary: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   15 — SCROLL REVEAL (.nexora-motion-reveal)
+   -------------------------------------------------------------------------- */
+.nexora-motion-reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition:
+    opacity var(--reveal-duration, 450ms) var(--ease-primary),
+    transform var(--reveal-duration, 450ms) var(--ease-primary);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.nexora-motion-reveal[data-direction="up"] {
+  transform: translateY(var(--reveal-distance, 30px));
+}
+
+.nexora-motion-reveal[data-direction="down"] {
+  transform: translateY(calc(var(--reveal-distance, 30px) * -1));
+}
+
+.nexora-motion-reveal[data-direction="left"] {
+  transform: translateX(var(--reveal-distance, 30px));
+}
+
+.nexora-motion-reveal[data-direction="right"] {
+  transform: translateX(calc(var(--reveal-distance, 30px) * -1));
+}
+
+.nexora-motion-reveal[data-direction="none"] {
+  transform: none;
+}
+
+.nexora-motion-reveal.is-revealed {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* --------------------------------------------------------------------------
+   16 — STAGGERED CARD REVEAL (.stagger-item)
+   -------------------------------------------------------------------------- */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition:
+    opacity 420ms var(--ease-primary),
+    transform 420ms var(--ease-primary);
+  transition-delay: var(--stagger-delay, 0ms);
+  will-change: transform, opacity;
+}
+
+.stagger-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* --------------------------------------------------------------------------
+   17 & 18 — PRODUCT IMAGE ZOOM & CARD LIFT
+   -------------------------------------------------------------------------- */
+.card,
+.nexora-product-card {
+  transition:
+    transform 320ms var(--ease-primary),
+    box-shadow 320ms var(--ease-primary),
+    border-color 320ms var(--ease-primary) !important;
+  will-change: transform, box-shadow;
+}
+
+.card:hover,
+.nexora-product-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65), 0 0 25px rgba(212, 175, 55, 0.16) !important;
+  border-color: rgba(212, 175, 55, 0.45) !important;
+}
+
+.pimage,
+.card-media {
+  overflow: hidden !important;
+  position: relative;
+}
+
+.pimage img,
+.card-media img {
+  transition: transform 500ms var(--ease-smooth) !important;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.card:hover .pimage img,
+.nexora-product-card:hover .card-media img {
+  transform: scale(1.05) !important;
+}
+
+/* --------------------------------------------------------------------------
+   19 — WISHLIST PULSE
+   Heart scale(1) -> scale(1.15) -> scale(1) on click (250-350ms)
+   -------------------------------------------------------------------------- */
+@keyframes wishlistPulse {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.22);
+  }
+  75% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card .heart.liked,
+.card-wishlist-btn.is-wishlisted,
+.wishBig.liked {
+  animation: wishlistPulse 320ms var(--ease-primary) !important;
+}
+
+/* --------------------------------------------------------------------------
+   21 — BUTTON MAGNETIC MOTION (.magnetic-btn)
+   -------------------------------------------------------------------------- */
+.magnetic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 180ms ease-out, box-shadow 250ms ease;
+  will-change: transform;
+}
+
+.magnetic-btn:not(.is-hovered) {
+  transition: transform 380ms var(--ease-smooth);
+}
+
+/* --------------------------------------------------------------------------
+   22 — BUTTON SHINE SWEEP (.shine-button)
+   -------------------------------------------------------------------------- */
+.shine-button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 14px 28px;
+  transition: transform 250ms var(--ease-primary), box-shadow 250ms var(--ease-primary);
+}
+
+.shine-button.btn-primary {
+  background: linear-gradient(
+    90deg,
+    #1cfb04,
+    #00d2ff,
+    #3a00ff,
+    #8a2be2,
+    #1cfb04
+  );
+  background-size: 300% 100%;
+  animation: rainbowPan 3s linear infinite;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.shine-button.btn-primary::before {
+  content: ""; position: absolute; inset: 0;
+  background: inherit;
+  filter: blur(15px); opacity: 0; transition: opacity 0.4s ease; z-index: 0;
+}
+.shine-button.btn-primary:hover::before { opacity: 0.6; }
+.shine-button.btn-primary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.shine-button.btn-ghost {
+  background: rgba(10, 10, 12, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+.shine-button.btn-ghost::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+  filter: blur(15px); opacity: 0; transition: opacity 0.4s ease; z-index: 0;
+}
+.shine-button.btn-ghost:hover::before { opacity: 0.7; }
+.shine-button.btn-ghost:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.6);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.shine-sweep-light {
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: skewX(-22deg);
+  pointer-events: none;
+  transition: left 650ms var(--ease-smooth);
+}
+
+.shine-button:hover .shine-sweep-light {
+  left: 180%;
+}
+
+/* --------------------------------------------------------------------------
+   24 — DROPDOWN ANIMATION (.animated-dropdown-wrapper)
+   UI ISOLATION ARCHITECTURE
+   -------------------------------------------------------------------------- */
+.animated-dropdown-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 16px;
+  background: rgba(10, 10, 10, 0.96);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 10px;
+  color: #FFF7E6;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+  position: relative;
+  z-index: 20;
+}
+
+.dropdown-trigger-btn:hover {
+  background: rgba(20, 20, 20, 0.98);
+}
+
+.dropdown-chevron {
+  color: #D4AF37;
+  transition: transform 220ms var(--ease-primary);
+}
+
+.dropdown-chevron.is-open {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu-card {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  min-width: 190px;
+  background: #0A0A0A;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  padding: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.60);
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 220ms var(--ease-primary), transform 220ms var(--ease-primary);
+}
+
+.dropdown-menu-card.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-item-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  background: transparent;
+  border: none;
+  color: #C8C1B6;
+  font-family: inherit;
+  font-size: 12.5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 180ms ease;
+  text-align: left;
+}
+
+.dropdown-item-btn:hover,
+.dropdown-item-btn.is-selected {
+  background: rgba(212, 175, 55, 0.10);
+  color: #F5E6B3;
+}
+
+.dropdown-check {
+  color: #d4af37;
+}
+
+/* --------------------------------------------------------------------------
+   25 — QUICK-VIEW MODAL (.animated-modal-portal)
+   -------------------------------------------------------------------------- */
+.animated-modal-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  animation: modalFadeIn 320ms var(--ease-primary) both;
+}
+
+.modal-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 680px;
+}
+
+.modal-card {
+  position: relative;
+  background: rgba(14, 14, 18, 0.96);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(212, 175, 55, 0.15);
+  animation: modalScaleIn 350ms var(--ease-primary) both;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  color: #ffd875;
+  transform: rotate(90deg);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   27 — QUANTITY MICRO-MOTION (.quantity-micro-selector)
+   -------------------------------------------------------------------------- */
+.quantity-micro-selector {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.qty-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: #e4e4e7;
+  font-size: 16px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.qty-btn:hover:not(:disabled) {
+  background: rgba(212, 175, 55, 0.18);
+  color: #ffd875;
+}
+
+.qty-btn:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+.qty-number {
+  min-width: 34px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  display: inline-block;
+  transition: transform 220ms var(--ease-primary);
+}
+
+.qty-number.is-pulsing {
+  transform: scale(1.16);
+  color: #ffd875;
+}
+
+/* --------------------------------------------------------------------------
+   28 — NUMBER COUNTER (.animated-counter-value)
+   -------------------------------------------------------------------------- */
+.animated-counter-value {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   29 — CHECKOUT PROGRESS (.checkout-progress-stepper)
+   -------------------------------------------------------------------------- */
+.checkout-progress-stepper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 36px;
+  padding: 0 16px;
+}
+
+.stepper-track-bg {
+  position: absolute;
+  top: 17px;
+  left: 40px;
+  right: 40px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.stepper-track-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d4af37, #ffd875);
+  transition: width 450ms var(--ease-primary);
+}
+
+.stepper-nodes {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepper-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.node-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #121216;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  color: #71717a;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 350ms var(--ease-primary);
+}
+
+.node-label {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #71717a;
+  letter-spacing: 0.5px;
+  transition: color 300ms ease;
+}
+
+.stepper-node.is-done .node-circle {
+  background: #d4af37;
+  border-color: #ffd875;
+  color: #000000;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.4);
+}
+
+.stepper-node.is-current .node-circle {
+  background: #181820;
+  border-color: #d4af37;
+  color: #ffd875;
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+  transform: scale(1.08);
+}
+
+.stepper-node.is-current .node-label,
+.stepper-node.is-done .node-label {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   30 — SUCCESS ANIMATION (.order-success-animation-wrap)
+   -------------------------------------------------------------------------- */
+.order-success-animation-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+}
+
+.success-radial-burst {
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.35), transparent 70%);
+  animation: burstPulse 1.2s var(--ease-smooth) infinite alternate;
+}
+
+.success-checkmark-svg {
+  width: 60px;
+  height: 60px;
+  display: block;
+  border-radius: 50%;
+  stroke-width: 3;
+  stroke: #d4af37;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0 0 0 #d4af37;
+  animation: fillCheck 0.4s ease-in-out 0.4s forwards, scaleCheck 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  stroke: #d4af37;
+  fill: none;
+  animation: strokeCircle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: strokeCheck 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+}
+
+@keyframes strokeCircle {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes strokeCheck {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes burstPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0.8;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   31 — SKELETON SHIMMER (.skeleton-shimmer-box)
+   -------------------------------------------------------------------------- */
+.skeleton-shimmer-box {
+  background: #18181c;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.8s infinite linear;
+}
+
+@keyframes skeletonShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   33 — ACCORDION REVEAL (.nexora-accordion-group)
+   -------------------------------------------------------------------------- */
+.nexora-accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.accordion-row {
+  background: rgba(10, 10, 10, 0.94);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 250ms ease;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px);
+}
+
+.accordion-row:hover {
+  background: rgba(15, 15, 15, 0.97);
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+.accordion-row.is-expanded {
+  background: rgba(12, 12, 12, 0.97);
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.45);
+}
+
+.accordion-header-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  background: transparent;
+  border: none;
+  color: #FFF7E6;
+  font-family: inherit;
+  font-size: clamp(16px, 1.3vw, 20px);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  text-align: left;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.75);
+  transition: color 250ms ease;
+}
+
+.accordion-icon {
+  color: #D4AF37;
+  transition: transform 300ms var(--ease-primary), color 300ms ease;
+}
+
+.accordion-row.is-expanded .accordion-icon {
+  transform: rotate(180deg);
+  color: #F5E6B3;
+}
+
+.accordion-collapse-panel {
+  overflow: hidden;
+  transition: max-height 320ms var(--ease-primary);
+}
+
+.accordion-body-text {
+  padding: 0 28px 26px;
+  color: #E7E0D4;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.7;
+  max-width: 780px;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.65);
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.accordion-row.is-expanded .accordion-body-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+  .nexora-accordion-group {
+    max-width: 100%;
+  }
+  .accordion-row {
+    background: #0A0A0A; /* Solid dark on mobile */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   35 — AMBIENT BACKGROUND MOTION (.ambient-glow-orb)
+   -------------------------------------------------------------------------- */
+.ambient-bg-motion-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-motion-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.14;
+  animation: ambientFloat 14s ease-in-out infinite alternate;
+}
+
+@keyframes ambientFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -20px) scale(1.12);
+  }
+  100% {
+    transform: translate(-25px, 20px) scale(0.95);
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION SUPPORT (@media prefers-reduced-motion)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .ticker-track {
+    animation: none !important;
+  }
+  .magnetic-btn {
+    transform: none !important;
+  }
+  .parallax-section-wrapper {
+    transform: none !important;
+  }
+  .shine-sweep-light {
+    display: none !important;
+  }
+}

@@ -1,0 +1,324 @@
+/* =========================================================================
+   NEXORA PRODUCT CARD — LUXURY MOTION DESIGN
+   ========================================================================= */
+
+.nexora-product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: rgba(18, 18, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.nexora-product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6),
+              0 0 20px -6px var(--card-accent, rgba(212, 175, 55, 0.25));
+}
+
+/* Media Box */
+.card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  background: #0d0d10;
+  overflow: hidden;
+}
+
+.card-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+}
+
+.nexora-product-card:hover .card-image {
+  transform: scale(1.07);
+}
+
+/* Top Badges */
+.card-badges-top {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: #333333 !important;
+  color: #f5f5f7 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: none;
+}
+
+.card-discount {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #d4af37, #9e7512);
+  color: #000;
+  width: fit-content;
+}
+
+/* Wishlist Button */
+.card-wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #333333 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  backdrop-filter: none;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s ease;
+}
+
+.card-wishlist-btn:hover {
+  transform: scale(1.15);
+  background: #444444 !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.card-wishlist-btn.is-wishlisted {
+  border-color: rgba(224, 130, 133, 0.5) !important;
+  background: #4a2b2f !important;
+}
+
+/* Quick View Button */
+.card-quick-view-btn {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: rgba(10, 10, 12, 0.88);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 20px;
+  color: #f5f5f7;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 3;
+}
+
+.nexora-product-card:hover .card-quick-view-btn {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.card-quick-view-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+  color: #ffd875;
+}
+
+/* Category Spec Pill */
+.card-spec-pill {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+  background: rgba(10, 10, 12, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #a1a1aa;
+  border-radius: 4px;
+  backdrop-filter: blur(6px);
+  transition: opacity 0.25s ease;
+}
+
+.nexora-product-card:hover .card-spec-pill {
+  opacity: 0;
+}
+
+/* Card Content */
+.card-content {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.card-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8e8e99;
+}
+
+.card-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.card-rating small {
+  font-size: 10px;
+  color: #71717a;
+  font-weight: 400;
+}
+
+.card-title {
+  margin: 0 0 14px 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 38px;
+}
+
+.card-title a {
+  color: #f4f4f6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.card-title a:hover {
+  color: #ffd875;
+}
+
+/* Prices & CTA Button */
+.card-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.current-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.3px;
+}
+
+.billing-cycle {
+  font-size: 11px;
+  color: #8e8e99;
+  font-weight: 400;
+}
+
+.original-price {
+  font-size: 12px;
+  color: #71717a;
+  text-decoration: line-through;
+}
+
+.card-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #f5f5f7;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card-add-btn:hover {
+  background: linear-gradient(135deg, #d4af37, #9e7512);
+  border-color: #d4af37;
+  color: #000;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+.card-add-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .card-content {
+    padding: 12px 14px 14px;
+  }
+  .card-title {
+    font-size: 13px;
+    min-height: 36px;
+  }
+  .current-price {
+    font-size: 14px;
+  }
+  .card-add-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  .card-add-btn span {
+    display: none;
+  }
+}

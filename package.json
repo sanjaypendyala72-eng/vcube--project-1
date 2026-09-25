@@ -3,16 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "npm --prefix motion-commerce run dev -- -p 8000",
-    "build": "npm --prefix motion-commerce run build",
-    "start": "npm --prefix motion-commerce run start -- -p 8000",
-    "dev:vite": "npm --prefix motion-commerce run dev:vite"
+    "dev": "npm --prefix motion-commerce run dev",
+    "build": "cd motion-commerce && npm install && npm run build",
+    "start": "npm --prefix motion-commerce run start"
   },
   "dependencies": {
-    "next": "^16.3.6",
-    "react": "^19.3.0",
-    "react-dom": "^19.3.0",
-    "lucide-react": "^0.363.0",
-    "react-router-dom": "^6.22.0"
+    "next": "^14.2.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
   }
 }
+

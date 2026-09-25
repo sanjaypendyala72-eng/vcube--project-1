@@ -1,0 +1,327 @@
+/* ==========================================================================
+   NEXORA — MOTION BUTTON SYSTEM
+   Cinematic luxury button effects with ambient light and premium motion.
+   ========================================================================== */
+
+.motion-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 999px;
+  min-height: 48px;
+  padding: 0 24px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  user-select: none;
+  background: #080808; /* Fallback */
+  color: #FFF7E6;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   ACTIVE PRESS
+   --------------------------------------------------------- */
+.motion-btn:active {
+  transform: scale(0.97) translateY(1px);
+}
+
+/* ---------------------------------------------------------
+   COMMON LAYERS
+   --------------------------------------------------------- */
+.mb-bg-layer,
+.mb-gradient-layer,
+.mb-glow-layer,
+.mb-ribbon-layer,
+.mb-border-layer,
+.mb-sweep-layer,
+.mb-particles-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.mb-content-layer {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: opacity 0.3s ease;
+}
+
+/* Icon / Arrow specific motion */
+.mb-icon-arrow {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.motion-btn:hover .mb-icon-arrow {
+  transform: translateX(4px);
+}
+
+/* ---------------------------------------------------------
+   VARIANT: PRIMARY
+   --------------------------------------------------------- */
+.mb-variant-primary {
+  background: #0a0a0a;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.mb-variant-primary .mb-gradient-layer {
+  background: linear-gradient(
+    90deg,
+    #1cfb04,
+    #00d2ff,
+    #3a00ff,
+    #8a2be2,
+    #1cfb04
+  );
+  background-size: 300% 100%;
+  animation: rainbowPan 3s linear infinite;
+  opacity: 0.9;
+}
+
+.mb-variant-primary .mb-glow-layer {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 60%);
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.1s linear;
+}
+
+.mb-variant-primary:hover .mb-glow-layer {
+  opacity: 0.8;
+}
+
+.mb-variant-primary .mb-border-layer {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.mb-variant-primary:hover .mb-border-layer {
+  border-color: rgba(245, 230, 179, 0.6);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2) inset;
+}
+
+.mb-variant-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+}
+
+/* ---------------------------------------------------------
+   VARIANT: PREMIUM (HERO CTA)
+   --------------------------------------------------------- */
+.mb-variant-premium {
+  background: #050505;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.mb-variant-premium .mb-gradient-layer {
+  background: linear-gradient(
+    90deg,
+    #1cfb04,
+    #00d2ff,
+    #3a00ff,
+    #8a2be2,
+    #1cfb04
+  );
+  background-size: 300% 100%;
+  animation: rainbowPan 3s linear infinite;
+}
+
+.mb-variant-premium .mb-glow-layer {
+  background: radial-gradient(ellipse at center, rgba(245, 230, 179, 0.25) 0%, transparent 70%);
+  filter: blur(25px);
+  opacity: 0.4;
+  transition: opacity 0.4s ease, transform 0.1s linear;
+}
+
+.mb-variant-premium:hover .mb-glow-layer {
+  opacity: 1;
+}
+
+.mb-variant-premium .mb-ribbon-layer {
+  background: linear-gradient(90deg, transparent, rgba(255, 247, 230, 0.1), transparent);
+  height: 150%;
+  width: 50%;
+  top: -25%;
+  transform: rotate(25deg) translateX(-250%);
+  filter: blur(8px);
+}
+.mb-variant-premium:hover .mb-ribbon-layer {
+  animation: premiumSweep 2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mb-variant-premium .mb-border-layer {
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  transition: all 0.3s ease;
+}
+
+.mb-variant-premium:hover .mb-border-layer {
+  border-color: rgba(245, 230, 179, 0.8);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3) inset, 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.mb-variant-premium:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.25);
+}
+
+/* ---------------------------------------------------------
+   VARIANT: SECONDARY / OUTLINE
+   --------------------------------------------------------- */
+.mb-variant-secondary, .mb-variant-outline {
+  background: rgba(10, 10, 12, 0.4);
+  backdrop-filter: blur(10px);
+  color: #FFF;
+}
+
+.mb-variant-secondary .mb-border-layer,
+.mb-variant-outline .mb-border-layer {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: border-color 0.3s ease;
+}
+
+.mb-variant-secondary:hover .mb-border-layer,
+.mb-variant-outline:hover .mb-border-layer {
+  border-color: rgba(212, 175, 55, 0.6);
+}
+
+.mb-variant-secondary .mb-glow-layer,
+.mb-variant-outline .mb-glow-layer {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+  filter: blur(15px);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.mb-variant-secondary:hover .mb-glow-layer,
+.mb-variant-outline:hover .mb-glow-layer {
+  opacity: 0.7;
+}
+
+/* ---------------------------------------------------------
+   VARIANT: ICON
+   --------------------------------------------------------- */
+.mb-variant-icon {
+  min-height: 42px;
+  width: 42px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 50%;
+  color: #FFF;
+}
+
+.mb-variant-icon .mb-border-layer {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease;
+  border-radius: 50%;
+}
+
+.mb-variant-icon:hover .mb-border-layer {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.mb-variant-icon .mb-glow-layer {
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.2) 0%, transparent 60%);
+  filter: blur(10px);
+  opacity: 0;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+
+.mb-variant-icon:hover .mb-glow-layer {
+  opacity: 1;
+}
+
+.mb-variant-icon:hover {
+  transform: scale(1.05);
+}
+
+/* ---------------------------------------------------------
+   PARTICLES (React will render tiny div dots)
+   --------------------------------------------------------- */
+.mb-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #FFF7E6;
+  border-radius: 50%;
+  opacity: 0.15;
+  box-shadow: 0 0 4px #F5E6B3;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100%) translateX(0); opacity: 0; }
+  20% { opacity: 0.3; }
+  80% { opacity: 0.3; }
+  100% { transform: translateY(-100px) translateX(10px); opacity: 0; }
+}
+
+/* ---------------------------------------------------------
+   KEYFRAMES
+   --------------------------------------------------------- */
+@keyframes bgPan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bgPanPremium {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes premiumSweep {
+  0% { transform: rotate(25deg) translateX(-250%); opacity: 0; }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { transform: rotate(25deg) translateX(300%); opacity: 0; }
+}
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .mb-gradient-layer, .mb-particle, .mb-ribbon-layer {
+    animation: none !important;
+  }
+  .mb-variant-premium:hover .mb-ribbon-layer {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  .motion-btn {
+    transition: opacity 0.2s ease !important;
+  }
+  .motion-btn:hover {
+    transform: none !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   PULSE ON CLICK
+   --------------------------------------------------------- */
+.mb-click-pulse {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(212,175,55,0.4) 0%, transparent 60%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: btnPulse 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+@keyframes btnPulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
+}

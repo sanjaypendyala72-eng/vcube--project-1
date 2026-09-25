@@ -1,0 +1,330 @@
+export const coursesCategory = {
+  id: "courses",
+  slug: "courses",
+  name: "Online Academy & Masterclasses",
+  shortTitle: "ONLINE COURSES",
+  subtitle: "Learn Skills That Move You Forward.",
+  tagline: "Industry-led masterclasses, live capstone projects, and accredited professional credentials.",
+  accentColor: "#4f46e5",
+  accentGlow: "rgba(79, 70, 229, 0.18)",
+  heroImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+  subcategories: [
+    "All", "Programming", "AI & ML", "Data Science", "Web Development", "Business", "Design", "Marketing", "Finance", "Career"
+  ],
+  filterOptions: {
+    levels: ["All Levels Welcome", "Beginner Friendly", "Intermediate", "Advanced / Staff Engineer"],
+    durations: ["< 10 Hours Sprint", "10-30 Hours Deep Dive", "30+ Hours Comprehensive Specialization"],
+    institutions: ["NEXORA Academy", "STANFORD Faculty Series", "METRIC Institute", "DESIGNWORKS Studio"]
+  },
+  promotions: [
+    {
+      title: "Generative AI Engineering",
+      heading: "Building Production LLM Applications",
+      desc: "Learn RAG architectures, function calling, vector indexing, and evaluations with Stanford researchers.",
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=80",
+      cta: "Enroll in Masterclass"
+    },
+    {
+      title: "Design Leadership",
+      heading: "Design Systems & Visual Direction",
+      desc: "Architect scalable multi-brand component libraries taught by former Apple and Stripe design leads.",
+      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=900&q=80",
+      cta: "View Curriculum"
+    }
+  ],
+  products: [
+    {
+      id: "crs-01",
+      name: "Building Production Generative AI & Autonomous Agents",
+      instructor: "Dr. Elena Rostova (Ex-DeepMind Researcher)",
+      brand: "NEXORA Academy",
+      category: "courses",
+      subcategory: "AI & ML",
+      price: 6999,
+      originalPrice: 12999,
+      rating: 5.0,
+      students: 4850,
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=85",
+      tag: "Top Rated",
+      duration: "34 Hours",
+      level: "Intermediate to Advanced",
+      certificate: "Verified Blockchain Credential Included",
+      curriculum: [
+        "Foundations of Transformers & Attention Mechanisms",
+        "Hybrid Vector Search & Advanced RAG Pipelines",
+        "Multi-Agent Swarm Orchestration with Python",
+        "Fine-Tuning Open Weights Models (Llama 3 & Mistral)",
+        "Production Evals, Guardrails & Cost Optimization"
+      ],
+      description: "Master the engineering skills needed to build robust, hallucination-resistant enterprise AI systems that query private databases and take real-world actions."
+    },
+    {
+      id: "crs-02",
+      name: "Modern Full-Stack React & Next.js Architecture 2026",
+      instructor: "Marcus Vance (Principal Frontend Architect)",
+      brand: "DESIGNWORKS Studio",
+      category: "courses",
+      subcategory: "Web Development",
+      price: 4499,
+      originalPrice: 8999,
+      rating: 4.9,
+      students: 7920,
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=85",
+      tag: "Bestseller",
+      duration: "42 Hours",
+      level: "Beginner to Advanced",
+      certificate: "Included",
+      curriculum: [
+        "React 19 Hooks, Server Components & Suspense",
+        "Next.js App Router, Streaming SSR & Edge Caching",
+        "TypeScript Strict Typing & Zod Data Validation",
+        "Tailwind CSS v4 & Framer Motion Gesture Animation",
+        "End-to-End Testing with Playwright & CI/CD"
+      ],
+      description: "From zero to building high-performance e-commerce and SaaS platforms with 100/100 Lighthouse performance, accessible micro-interactions, and scalable state."
+    },
+    {
+      id: "crs-03",
+      name: "The Executive Product Design & Design Systems Masterclass",
+      instructor: "Sarah Lin (Former Lead Designer at Stripe)",
+      brand: "DESIGNWORKS Studio",
+      category: "courses",
+      subcategory: "Design",
+      price: 5999,
+      originalPrice: 10499,
+      rating: 4.9,
+      students: 3120,
+      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=900&q=85",
+      tag: "Elite Design",
+      duration: "26 Hours",
+      level: "Intermediate",
+      certificate: "Included",
+      curriculum: [
+        "Design Tokens Architecture & Semantic Naming",
+        "Component Anatomy, Auto-Layout & Variants",
+        "Dark Mode, Accessibility Standards & Color Systems",
+        "Design Governance & Developer Hand-off Documentation"
+      ],
+      description: "Learn how world-class tech companies structure design tokens, component libraries, and visual guidelines that align hundreds of designers and engineers."
+    },
+    {
+      id: "crs-04",
+      name: "Algorithmic Trading & Quantitative Finance with Python",
+      instructor: "Julian Thorne (Senior Quant Hedge Fund Strategist)",
+      brand: "METRIC Institute",
+      category: "courses",
+      subcategory: "Finance",
+      price: 7499,
+      originalPrice: 14999,
+      rating: 4.8,
+      students: 2450,
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=900&q=85",
+      tag: "Wall Street Prep",
+      duration: "38 Hours",
+      level: "Advanced",
+      certificate: "Included",
+      curriculum: [
+        "Time-Series Analysis & Statistical Arbitrage",
+        "Building Backtesting Engines with VectorBT",
+        "Machine Learning Factor Investing Strategies",
+        "Execution Algorithms & Order Book Microstructure"
+      ],
+      description: "Develop, backtest, and automate systematic quantitative investment strategies using pandas, NumPy, interactive brokerage APIs, and risk management math."
+    },
+    {
+      id: "crs-05",
+      name: "Systems Programming in Rust: From Beginner to Kernel",
+      instructor: "Aiden Croft (Linux Kernel Contributor)",
+      brand: "NEXORA Academy",
+      category: "courses",
+      subcategory: "Programming",
+      price: 4999,
+      originalPrice: 9499,
+      rating: 5.0,
+      students: 3890,
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=900&q=85",
+      tag: "Systems Guru",
+      duration: "31 Hours",
+      level: "Intermediate",
+      certificate: "Included",
+      curriculum: [
+        "Memory Safety, Ownership & Lifetime Mechanics",
+        "Concurrent Multithreading with Crossbeam & Rayon",
+        "Writing Asynchronous Network Daemons with Tokio",
+        "FFI: Calling C and C++ Libraries Safely"
+      ],
+      description: "Master Rust's zero-cost abstractions and borrow checker. Build blazing-fast web servers, database storage engines, and memory-safe command line tools."
+    },
+    {
+      id: "crs-06",
+      name: "Venture Capital & Tech Startup Valuation Bootcamp",
+      instructor: "Devon Reynolds (General Partner, Horizon Ventures)",
+      brand: "NEXORA Academy",
+      category: "courses",
+      subcategory: "Business",
+      price: 6499,
+      originalPrice: 11999,
+      rating: 4.9,
+      reviews: 180,
+      students: 1980,
+      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85",
+      tag: "Founder Prep",
+      duration: "20 Hours",
+      level: "All Levels Welcome",
+      certificate: "Included",
+      curriculum: [
+        "Cap Table Modeling, SAFEs & Convertible Notes",
+        "DCF, Scorecard & Venture Capital Valuation Methods",
+        "Crafting Irresistible Series A Pitch Narratives",
+        "Due Diligence Red Flags & Boardroom Governance"
+      ],
+      description: "Go behind closed venture capital doors. Learn how leading early-stage VCs evaluate startup founders, analyze unit economics, and negotiate term sheets."
+    },
+    {
+      id: "crs-07",
+      name: "Data Engineering with Apache Spark, Kafka & Snowflake",
+      instructor: "Vikram Shenoy (Staff Data Engineer)",
+      brand: "METRIC Institute",
+      category: "courses",
+      subcategory: "Data Science",
+      price: 5499,
+      originalPrice: 9999,
+      rating: 4.8,
+      students: 3410,
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=85",
+      tag: "Big Data",
+      duration: "36 Hours",
+      level: "Intermediate",
+      certificate: "Included",
+      curriculum: [
+        "Real-Time Stream Processing with Apache Kafka",
+        "Distributed Data Transformations in PySpark",
+        "Modern Data Warehousing with dbt & Snowflake",
+        "Data Quality Testing & Orchestration with Airflow"
+      ],
+      description: "Build production-scale data lakes and streaming analytics pipelines capable of handling billions of daily events with zero data loss."
+    },
+    {
+      id: "crs-08",
+      name: "Growth Hacking & Performance Marketing Playbook",
+      instructor: "Chloe Dubois (Head of Growth, ex-Uber)",
+      brand: "NEXORA Academy",
+      category: "courses",
+      subcategory: "Marketing",
+      price: 3999,
+      originalPrice: 7499,
+      rating: 4.7,
+      students: 4200,
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=85",
+      tag: "Growth",
+      duration: "18 Hours",
+      level: "All Levels Welcome",
+      certificate: "Included",
+      curriculum: [
+        "Paid Acquisition Channels (Meta, Google & LinkedIn Ads)",
+        "Viral Loops & Referral Engine Mechanics",
+        "Landing Page CRO Conversion Rate Optimization",
+        "Retention Automation via Klaviyo & Braze"
+      ],
+      description: "Acquire high-LTV customers profitably. Actionable tactical frameworks for scaling early-stage apps from $10k to $100k in monthly recurring revenue."
+    },
+    {
+      id: "crs-09",
+      name: "3D Motion Graphics & Sci-Fi Art in Blender 4",
+      instructor: "Kai Takahashi (Cinema 3D Director)",
+      brand: "DESIGNWORKS Studio",
+      category: "courses",
+      subcategory: "Design",
+      price: 4299,
+      originalPrice: 7999,
+      rating: 4.9,
+      students: 5120,
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=85",
+      tag: "CGI Master",
+      duration: "28 Hours",
+      level: "Beginner to Intermediate",
+      certificate: "Included",
+      curriculum: [
+        "Hard-Surface Sci-Fi Geometry Modeling",
+        "Procedural Shading, Caustics & Lighting Setup",
+        "Physics Rigid Body Dynamics & Cloth Simulations",
+        "Color Grading Cycles Renders in After Effects"
+      ],
+      description: "Create breathtaking 3D commercial product animations, cyberpunk worlds, and dynamic sci-fi title sequences using 100% free open-source Blender software."
+    },
+    {
+      id: "crs-10",
+      name: "Tech Leadership & Engineering Management Essentials",
+      instructor: "David Sterling (VP of Engineering)",
+      brand: "NEXORA Academy",
+      category: "courses",
+      subcategory: "Career",
+      price: 4999,
+      originalPrice: 8999,
+      rating: 4.9,
+      students: 1740,
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=85",
+      tag: "Leadership",
+      duration: "16 Hours",
+      level: "Senior Engineers & Managers",
+      certificate: "Included",
+      curriculum: [
+        "Transitioning from Individual Contributor to Manager",
+        "1-on-1 Coaching & Constructive Performance Feedback",
+        "Technical Roadmap Prioritization & Stakeholder Buy-In",
+        "Hiring, Team Culture & Fostering Psychological Safety"
+      ],
+      description: "A practical guide for senior software developers transitioning into engineering management, leading cross-functional teams, and driving organizational impact."
+    },
+    {
+      id: "crs-11",
+      name: "Cybersecurity & Offensive Ethical Penetration Testing",
+      instructor: "CipherX (Red Team Lead & Bug Bounty Hunter)",
+      brand: "NEXORA Academy",
+      category: "courses",
+      subcategory: "Programming",
+      price: 5499,
+      originalPrice: 9999,
+      rating: 5.0,
+      students: 2890,
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=85",
+      tag: "Red Team",
+      duration: "35 Hours",
+      level: "Intermediate",
+      certificate: "Certified Ethical Hacker Alignment",
+      curriculum: [
+        "Reconnaissance, Port Scanning & Network Exploits",
+        "Web Vulnerabilities: SQLi, XSS, CSRF & SSRF",
+        "Privilege Escalation on Linux and Windows Active Directory",
+        "Writing Professional Vulnerability Disclosure Reports"
+      ],
+      description: "Hands-on labs attacking simulated corporate networks to identify critical security flaws before malicious black-hat threat actors find them."
+    },
+    {
+      id: "crs-12",
+      name: "Mastering Storytelling & High-Stakes Public Speaking",
+      instructor: "Victoria Hastings (Keynote Speaker Coach)",
+      brand: "NEXORA Academy",
+      category: "courses",
+      subcategory: "Career",
+      price: 2999,
+      originalPrice: 5499,
+      rating: 4.8,
+      students: 3100,
+      image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=900&q=85",
+      tag: "Confidence",
+      duration: "12 Hours",
+      level: "All Levels Welcome",
+      certificate: "Included",
+      curriculum: [
+        "Overcoming Stage Fright & Vocal Projection Techniques",
+        "Structuring Memorable Narrative Story Arcs",
+        "Designing Minimalist Keynote Slide Decks",
+        "Commanding Q&A Sessions and Handling Hostile Questions"
+      ],
+      description: "Captivate audiences at international conferences, shareholder meetings, and investor pitches with presence, poise, and magnetic storytelling."
+    }
+  ]
+};
+
+export default coursesCategory;

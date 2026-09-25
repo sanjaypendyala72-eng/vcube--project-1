@@ -1,5 +1,5 @@
 {
-  "installCommand": "npm install && cd motion-commerce && npm install",
+  "installCommand": "npm install --legacy-peer-deps && cd motion-commerce && npm install --legacy-peer-deps",
   "buildCommand": "cd motion-commerce && npm run build",
   "outputDirectory": "motion-commerce/.next",
   "framework": "nextjs"

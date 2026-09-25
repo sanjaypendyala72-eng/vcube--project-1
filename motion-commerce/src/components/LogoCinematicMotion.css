@@ -1,0 +1,483 @@
+/* ==========================================================================
+   NEXORA HEADER LOGO — CINEMATIC BACKGROUND MOTION SYSTEM
+   Luxury • Champagne Gold • Subdued Darkness • Pure GPU Transforms
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Container & Parallax System
+   -------------------------------------------------------------------------- */
+.nexora-logo-cinematic-bg {
+  position: absolute;
+  top: -16px;
+  left: -24px;
+  right: -24px;
+  bottom: -16px;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 0;
+  border-radius: 20px;
+  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), 0);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+  will-change: transform;
+}
+
+.bg-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   LAYER 1: Base Charcoal Gradient (90% deep dark, 10% champagne highlight)
+   -------------------------------------------------------------------------- */
+.layer-charcoal-base {
+  background: radial-gradient(
+    ellipse at 40% 50%,
+    rgba(22, 22, 28, 0.45) 0%,
+    rgba(14, 14, 18, 0.25) 55%,
+    transparent 80%
+  );
+  border-radius: 20px;
+  opacity: 0.85;
+}
+
+/* --------------------------------------------------------------------------
+   LAYER 2: Soft Radial Breathing Golden Glow (6-10s duration)
+   Scale: 0.95 -> 1.05, Opacity: 0.08 -> 0.14
+   -------------------------------------------------------------------------- */
+.layer-breathing-radial-glow {
+  background: radial-gradient(
+    ellipse at 35% 50%,
+    rgba(212, 175, 55, 0.14) 0%,
+    rgba(245, 230, 179, 0.08) 35%,
+    rgba(18, 18, 22, 0.02) 65%,
+    transparent 80%
+  );
+  filter: blur(22px);
+  animation: glowBreathe 7.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+  will-change: transform, opacity;
+}
+
+@keyframes glowBreathe {
+  0% {
+    transform: scale(0.95) translateZ(0);
+    opacity: 0.08;
+  }
+  50% {
+    transform: scale(1.04) translateZ(0);
+    opacity: 0.14;
+  }
+  100% {
+    transform: scale(0.98) translateZ(0);
+    opacity: 0.09;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LAYER 3: Soft Aurora-like Golden Light Waves
+   -------------------------------------------------------------------------- */
+.layer-aurora-waves {
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.03) 25%,
+    rgba(245, 230, 179, 0.06) 50%,
+    rgba(212, 175, 55, 0.02) 75%,
+    transparent 100%
+  );
+  filter: blur(18px);
+  transform: scaleY(0.9);
+  animation: auroraWaveShift 14s ease-in-out infinite alternate;
+  opacity: 0.6;
+}
+
+@keyframes auroraWaveShift {
+  0% {
+    transform: translateX(-15%) skewX(-8deg) scaleY(0.85);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateX(10%) skewX(6deg) scaleY(1.05);
+    opacity: 0.65;
+  }
+  100% {
+    transform: translateX(-8%) skewX(-5deg) scaleY(0.95);
+    opacity: 0.45;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LAYER 4: Flowing Golden Silk Light Trails (8-15s loops, seamless curves)
+   -------------------------------------------------------------------------- */
+.layer-light-trails {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.35));
+}
+
+.silk-trail {
+  stroke-dasharray: 480;
+  stroke-dashoffset: 480;
+  will-change: stroke-dashoffset, transform, opacity;
+}
+
+/* Trail 1: Top flowing silk ribbon */
+.silk-trail.trail-1 {
+  opacity: 0.22;
+  animation: silkTrailFlow1 11s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes silkTrailFlow1 {
+  0% {
+    stroke-dashoffset: 480;
+    opacity: 0.08;
+    transform: translateY(0) scale(1);
+  }
+  35% {
+    opacity: 0.25;
+    transform: translateY(-3px) scale(1.02);
+  }
+  70% {
+    opacity: 0.16;
+    transform: translateY(2px) scale(0.99);
+  }
+  100% {
+    stroke-dashoffset: -480;
+    opacity: 0.08;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Trail 2: Undulating lower silk filament */
+.silk-trail.trail-2 {
+  opacity: 0.18;
+  animation: silkTrailFlow2 14s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation-delay: -3.5s;
+}
+
+@keyframes silkTrailFlow2 {
+  0% {
+    stroke-dashoffset: -480;
+    opacity: 0.06;
+    transform: translateY(0) scale(0.98);
+  }
+  45% {
+    opacity: 0.22;
+    transform: translateY(4px) scale(1.03);
+  }
+  80% {
+    opacity: 0.14;
+    transform: translateY(-2px) scale(1);
+  }
+  100% {
+    stroke-dashoffset: 480;
+    opacity: 0.06;
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+/* Trail 3: Whisper center line */
+.silk-trail.trail-3 {
+  opacity: 0.12;
+  animation: silkTrailFlow3 16s ease-in-out infinite alternate;
+  animation-delay: -6s;
+}
+
+@keyframes silkTrailFlow3 {
+  0% {
+    transform: translateX(-12px) scaleX(0.95);
+    opacity: 0.07;
+  }
+  50% {
+    transform: translateX(14px) scaleX(1.05);
+    opacity: 0.16;
+  }
+  100% {
+    transform: translateX(-8px) scaleX(0.98);
+    opacity: 0.09;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LAYER 5 & 6: Controlled Floating Micro Gold Dust Particles
+   opacity: 0 -> 0.35 -> 0, movement: translateY(-10px to -35px)
+   -------------------------------------------------------------------------- */
+.layer-micro-particles {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.gold-particle {
+  position: absolute;
+  width: 2.5px;
+  height: 2.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 15%, #ffd875 60%, rgba(212, 175, 55, 0.4) 100%);
+  box-shadow: 0 0 6px 1px rgba(245, 230, 179, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  animation: particleFloat 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.gold-particle.p1 { animation-duration: 6.5s; animation-delay: 0.2s; }
+.gold-particle.p2 { animation-duration: 8.2s; animation-delay: 1.8s; width: 2px; height: 2px; }
+.gold-particle.p3 { animation-duration: 9.0s; animation-delay: 3.2s; }
+.gold-particle.p4 { animation-duration: 7.4s; animation-delay: 4.5s; width: 1.8px; height: 1.8px; }
+.gold-particle.p5 { animation-duration: 8.8s; animation-delay: 5.6s; }
+.gold-particle.p6 { animation-duration: 6.8s; animation-delay: 2.4s; width: 2px; height: 2px; }
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0px) scale(0.7);
+  }
+  25% {
+    opacity: 0.32;
+    transform: translateY(-8px) scale(1);
+  }
+  65% {
+    opacity: 0.25;
+    transform: translateY(-22px) scale(0.85);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-38px) scale(0.65);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   LAYER 7: Occasional Sparkle Star Highlight (Sparse, 1 at a time, 600-1200ms)
+   -------------------------------------------------------------------------- */
+.layer-single-sparkle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sparkle-diamond {
+  position: absolute;
+  inset: 2px;
+  background: radial-gradient(circle, #ffffff 20%, #ffd875 60%, transparent 80%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(255, 245, 210, 0.95);
+  animation: sparkleBloom 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.sparkle-flare-h {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  right: -10px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ffffff, #ffd875, transparent);
+  transform: translateY(-50%);
+  animation: flareExpand 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.sparkle-flare-v {
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  bottom: -10px;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, #ffffff, #ffd875, transparent);
+  transform: translateX(-50%);
+  animation: flareExpand 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes sparkleBloom {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  45% { transform: scale(1.4) rotate(45deg); opacity: 1; }
+  75% { transform: scale(1) rotate(90deg); opacity: 0.85; }
+  100% { transform: scale(0.3) rotate(135deg); opacity: 0; }
+}
+
+@keyframes flareExpand {
+  0% { transform: scale(0); opacity: 0; }
+  40% { transform: scale(1.2); opacity: 0.9; }
+  100% { transform: scale(0.2); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   LAYER 8: Periodic Cinematic Light Sweep (every 9s, LEFT -> CENTER -> RIGHT)
+   -------------------------------------------------------------------------- */
+.layer-cinematic-sweep {
+  position: absolute;
+  top: -20%;
+  left: -60%;
+  width: 55%;
+  height: 140%;
+  background: linear-gradient(
+    80deg,
+    transparent 0%,
+    rgba(212, 175, 55, 0.03) 25%,
+    rgba(255, 247, 230, 0.18) 50%,
+    rgba(212, 175, 55, 0.04) 75%,
+    transparent 100%
+  );
+  transform: skewX(-24deg) translateX(-100%);
+  filter: blur(12px);
+  pointer-events: none;
+  animation: periodicSweep 9.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes periodicSweep {
+  0%, 75% {
+    transform: skewX(-24deg) translateX(-120%);
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.65;
+  }
+  92% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: skewX(-24deg) translateX(420%);
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. INITIAL LOAD & SYNCHRONIZATION TIMELINE
+   0.00s Dark -> 0.15s Spark -> 0.25s Glow -> 0.45s Text -> 1.40s Settle
+   -------------------------------------------------------------------------- */
+.nexora-logo-cinematic-bg.stage-0 {
+  opacity: 0;
+}
+.nexora-logo-cinematic-bg.stage-1 {
+  opacity: 0.3;
+}
+.nexora-logo-cinematic-bg.stage-2 {
+  opacity: 0.65;
+}
+.nexora-logo-cinematic-bg.stage-3,
+.nexora-logo-cinematic-bg.stage-4,
+.nexora-logo-cinematic-bg.stage-5,
+.nexora-logo-cinematic-bg.stage-6 {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   13. HOVER INTERACTION (+12% Glow, Light Sweep Flash, Subtle Depth)
+   -------------------------------------------------------------------------- */
+.nexora-logo-cinematic-bg.is-hovered .layer-breathing-radial-glow {
+  opacity: 0.22 !important;
+  transform: scale(1.08) !important;
+  transition: all 0.35s ease;
+}
+
+.nexora-logo-cinematic-bg.is-hovered .layer-charcoal-base {
+  opacity: 1;
+  background: radial-gradient(
+    ellipse at 40% 50%,
+    rgba(28, 28, 36, 0.55) 0%,
+    rgba(18, 18, 24, 0.3) 55%,
+    transparent 80%
+  );
+}
+
+.nexora-logo-cinematic-bg.is-hovered .layer-cinematic-sweep {
+  animation: hoverInstantSweep 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes hoverInstantSweep {
+  0% {
+    transform: skewX(-24deg) translateX(-80%);
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: skewX(-24deg) translateX(380%);
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. SCROLL BEHAVIOR: COMPACT HEADER STATE
+   Reduces glow, trails, and micro-particles during scroll
+   -------------------------------------------------------------------------- */
+.nexora-logo-cinematic-bg.is-scrolled {
+  top: -8px;
+  bottom: -8px;
+  left: -14px;
+  right: -14px;
+}
+
+.nexora-logo-cinematic-bg.is-scrolled .layer-breathing-radial-glow {
+  opacity: 0.08;
+  filter: blur(14px);
+}
+
+.nexora-logo-cinematic-bg.is-scrolled .silk-trail.trail-3,
+.nexora-logo-cinematic-bg.is-scrolled .gold-particle.p4,
+.nexora-logo-cinematic-bg.is-scrolled .gold-particle.p5,
+.nexora-logo-cinematic-bg.is-scrolled .gold-particle.p6 {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   16. RESPONSIVE BEHAVIOR (Mobile & Tablet Optimization)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .silk-trail.trail-3 {
+    display: none;
+  }
+  .gold-particle.p5,
+  .gold-particle.p6 {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .silk-trail.trail-2 {
+    display: none;
+  }
+  .gold-particle.p3,
+  .gold-particle.p4 {
+    display: none;
+  }
+  .layer-breathing-radial-glow {
+    filter: blur(14px);
+    opacity: 0.09;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   17. REDUCED MOTION SUPPORT (prefers-reduced-motion: reduce)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .layer-breathing-radial-glow,
+  .layer-aurora-waves,
+  .silk-trail,
+  .gold-particle,
+  .layer-cinematic-sweep,
+  .sparkle-diamond,
+  .sparkle-flare-h,
+  .sparkle-flare-v {
+    animation: none !important;
+  }
+
+  .layer-breathing-radial-glow {
+    opacity: 0.1 !important;
+    transform: none !important;
+  }
+
+  .silk-trail {
+    stroke-dashoffset: 0 !important;
+    opacity: 0.1 !important;
+  }
+
+  .gold-particle,
+  .layer-single-sparkle,
+  .layer-cinematic-sweep {
+    display: none !important;
+  }
+}

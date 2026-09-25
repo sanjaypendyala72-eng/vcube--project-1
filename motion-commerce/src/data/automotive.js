@@ -1,0 +1,200 @@
+export const automotiveCategory = {
+  id: "automotive",
+  slug: "automotive",
+  name: "Automotive & Performance",
+  shortTitle: "AUTOMOTIVE",
+  subtitle: "Drive Smarter.",
+  tagline: "4K dual dashcams, graphene ceramic detailing, and precision tire dynamics.",
+  accentColor: "#94a3b8",
+  accentGlow: "rgba(148, 163, 184, 0.16)",
+  heroImage: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85",
+  subcategories: [
+    "All", "Car Accessories", "Bike Accessories", "Electronics", "Interior", "Exterior", "Cleaning", "Maintenance", "Safety", "Tools"
+  ],
+  filterOptions: {
+    vehicleTypes: ["Luxury Sedans", "SUVs & 4x4", "Supercars & Sports", "Motorcycles & Scooters", "Electric Vehicles (EV)"],
+    brands: ["VELOX Moto", "AUTOCRAFT Pro", "NEXORA Drive", "TITAN Tech", "AERO Ceramic"]
+  },
+  promotions: [
+    {
+      title: "Night Vision Telemetry",
+      heading: "Velox 4K Dual HDR Dashcam",
+      desc: "Sony STARVIS 2 sensor with 24-hour parked radar surveillance and 4G cloud live view.",
+      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=80",
+      cta: "Explore Dashcams"
+    },
+    {
+      title: "Permanent Hydrophobic Armor",
+      heading: "10H Graphene Ceramic Coating",
+      desc: "7-year UV protection, intense wet mirror gloss, and self-cleaning water repelling matrix.",
+      image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=80",
+      cta: "View Detailing"
+    }
+  ],
+  products: [
+    {
+      id: "auto-01",
+      name: "Velox Vision Pro 4K Dual Channel HDR Dashcam",
+      brand: "VELOX Moto",
+      category: "automotive",
+      subcategory: "Electronics",
+      price: 16999,
+      originalPrice: 21999,
+      rating: 4.9,
+      reviews: 240,
+      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=85",
+      tag: "Best Seller",
+      vehicleType: "Universal",
+      specs: { front: "4K UHD 30fps Sony STARVIS 2 IMX678", rear: "1080p HDR Weatherproof", storage: "128GB High-Endurance Card Included", parking: "24/7 Radar Detection" },
+      description: "Captures crystal clear license plates in darkness without glare. Built-in 5GHz Wi-Fi transfers accident video clips to your smartphone in seconds."
+    },
+
+    {
+      id: "auto-03",
+      name: "AeroShield 10H Graphene Ceramic Coating Kit 50ml",
+      brand: "AERO Ceramic",
+      category: "automotive",
+      subcategory: "Cleaning",
+      price: 5999,
+      originalPrice: 7999,
+      rating: 5.0,
+      reviews: 130,
+      image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=85",
+      tag: "Pro Detailer",
+      vehicleType: "Universal",
+      specs: { hardness: "10H Diamond Hardness", durability: "Up to 7 Years Warranty", waterAngle: "115° Extreme Hydrophobic" },
+      description: "Infused with reduced graphene oxide to dissipate heat, prevent water spotting, and provide a deep liquid candy mirror shine."
+    },
+    {
+      id: "auto-04",
+      name: "Wireless MagSafe Magnetic Active Cooling Car Mount",
+      brand: "NEXORA Drive",
+      category: "automotive",
+      subcategory: "Car Accessories",
+      price: 3499,
+      originalPrice: 4499,
+      rating: 4.8,
+      reviews: 215,
+      image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=85",
+      tag: "Cooling Tech",
+      vehicleType: "Universal",
+      specs: { charging: "15W Qi Fast Wireless", cooling: "Peltier Cryo-Chip + Silent Fan", mount: "Steel Hook Air Vent Grip" },
+      description: "Active semiconductor cooling chills your phone while running GPS navigation and music in hot weather, avoiding overheating shutdowns."
+    },
+    {
+      id: "auto-05",
+      name: "HEPA 13 Active Carbon Air Purifier & Ionizer",
+      brand: "AUTOCRAFT Pro",
+      category: "automotive",
+      subcategory: "Interior",
+      price: 4999,
+      originalPrice: 6499,
+      rating: 4.7,
+      reviews: 140,
+      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
+      tag: "Pure Air",
+      vehicleType: "Universal",
+      specs: { filtration: "True Medical Grade HEPA H13 + Coconut Carbon", cadr: "35 m³/h", sensor: "Laser PM2.5 Particle Display" },
+      description: "Cup-holder form factor quietly neutralizes traffic smog, pollen, exhaust VOCs, smoke, and odors in under 7 minutes of driving."
+    },
+
+    {
+      id: "auto-07",
+      name: "Carbon Fiber Motorcycle Tank Bag Magnetic",
+      brand: "VELOX Moto",
+      category: "automotive",
+      subcategory: "Bike Accessories",
+      price: 4899,
+      originalPrice: 6299,
+      rating: 4.8,
+      reviews: 110,
+      image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=85",
+      tag: "Rider Essential",
+      vehicleType: "Motorcycles & Scooters",
+      specs: { capacity: "12L Expandable to 16L", shell: "Aerodynamic Semi-Rigid Carbon Mold", phone: "Touchscreen Clear Nav Window" },
+      description: "Secures firmly onto metal tanks with 6 neodymium rare-earth magnets. Water-resistant rain cover and backpack shoulder strap included."
+    },
+    {
+      id: "auto-08",
+      name: "Handcrafted Italian Leather Steering Wheel Wrap",
+      brand: "AUTOCRAFT Pro",
+      category: "automotive",
+      subcategory: "Interior",
+      price: 2999,
+      originalPrice: 3999,
+      rating: 4.9,
+      reviews: 85,
+      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
+      tag: "Bespoke",
+      vehicleType: "Universal",
+      specs: { leather: "Perforated Tuscany Nappa Leather", includes: "Heavy-Duty Waxed Stitching Cord & Needles" },
+      description: "Hand-stitch kit transforms standard steering wheels with supple, breathable, race-inspired grip and custom champagne stitching."
+    },
+    {
+      id: "auto-09",
+      name: "Cordless Brushless Car Foam Cannon & Pressure Washer",
+      brand: "AERO Ceramic",
+      category: "automotive",
+      subcategory: "Cleaning",
+      price: 8999,
+      originalPrice: 11999,
+      rating: 4.7,
+      reviews: 165,
+      image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=85",
+      tag: "Detailing",
+      vehicleType: "Universal",
+      specs: { pressure: "60 Bar Working Pressure", battery: "40V Dual Lithium Pack", suction: "Draws from Any Bucket or Bottle" },
+      description: "Thick shaving-cream snow foam clings to vehicle paint, encapsulating abrasive road grime for safe, scratch-free two-bucket washes."
+    },
+    {
+      id: "auto-09b",
+      name: "OBD2 Bluetooth Real-Time Engine Diagnostic Scanner",
+      brand: "NEXORA Drive",
+      category: "automotive",
+      subcategory: "Tools",
+      price: 2499,
+      originalPrice: 3499,
+      rating: 4.8,
+      reviews: 280,
+      image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=900&q=85",
+      tag: "Smart Tool",
+      vehicleType: "Universal",
+      specs: { compatibility: "All Petrol Vehicles (1996+) & Diesel (2004+)", protocols: "Full CAN-Bus & ISO Support" },
+      description: "Instantly reads check-engine error trouble codes, explains repair severity in plain English, and resets dashboard warning lights."
+    },
+    {
+      id: "auto-11",
+      name: "Waterproof Heavy-Duty Trunk Cargo Protection Liner",
+      brand: "AUTOCRAFT Pro",
+      category: "automotive",
+      subcategory: "Exterior",
+      price: 3299,
+      originalPrice: 4299,
+      rating: 4.8,
+      reviews: 135,
+      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
+      tag: "All-Weather",
+      vehicleType: "SUVs & 4x4",
+      specs: { material: "Multi-Layer Thermoplastic Elastomer (TPE)", edge: "2.5-Inch Raised Spill Barrier Lip" },
+      description: "Laser-measured precision fit protects factory trunk carpeting from mud, gardening soil, chemical spills, and wet pet paws."
+    },
+    {
+      id: "auto-12",
+      name: "Aerodynamic Low-Profile Aluminum Roof Cargo Crossbars",
+      brand: "VELOX Moto",
+      category: "automotive",
+      subcategory: "Car Accessories",
+      price: 11999,
+      originalPrice: 14999,
+      rating: 4.9,
+      reviews: 78,
+      image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85",
+      tag: "Adventure",
+      vehicleType: "SUVs & 4x4",
+      specs: { load: "100 kg Dynamic Weight Capacity", aerodynamics: "T-Slot Wing Profile Minimizes Wind Noise", locks: "Integrated Anti-Theft Key Lock Core" },
+      description: "Sleek aircraft wing cross-section creates near-zero cabin highway whistle while providing solid anchors for bike racks, skis, and roof tents."
+    }
+  ]
+};
+
+export default automotiveCategory;

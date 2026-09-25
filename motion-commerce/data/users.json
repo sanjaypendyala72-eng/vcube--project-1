@@ -1,0 +1,14 @@
+[
+  {
+    "id": "33cae128-086e-40ed-864c-f8f5451745eb",
+    "email": "sanjaypendyala72@gmail.com",
+    "name": "pendyala sanjay",
+    "passwordHash": "b3156e4f74ae416506b8ae490f152c0d:04df74a880ec17e4e66d066f45ffd679bac36004e898f64b3e5d8572502af306a737dce2143066941e72b3bbfd5211d2a8b8a4b912d7e459bb04221724324303",
+    "isVerified": true,
+    "verificationTokenHash": null,
+    "verificationExpires": null,
+    "resetTokenHash": null,
+    "resetExpires": null,
+    "createdAt": "2026-09-23T08:30:52.038Z"
+  }
+]

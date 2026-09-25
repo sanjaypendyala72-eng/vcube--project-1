@@ -1,0 +1,404 @@
+/* =========================================================
+   NEXORA CINEMATIC MOTION LOGO ANIMATION STYLES
+   - Black luxury gradient
+   - Champagne-gold light ribbons & reflections
+   - Top -> Center -> Bottom continuous loop
+   - Letter-by-letter left-to-right typography reveal
+   - Elegant upward tagline slide
+   ========================================================= */
+
+.nexora-cinematic-container {
+  position: fixed;
+  top: 46px; /* Offset below mini header ticker (46px) */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: calc(100vh - 46px);
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 48%, rgba(20, 18, 14, 0.95) 0%, rgba(9, 9, 11, 1) 100%);
+}
+
+.nexora-canvas-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.nexora-motion-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px; /* Comfortably shift center stage down */
+}
+
+/* Light Stream coming from TOP */
+.flow-light-stream {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 25vh;
+  background: linear-gradient(180deg, transparent 0%, rgba(245, 215, 127, 0.8) 50%, rgba(212, 175, 55, 0) 100%);
+  filter: blur(2px) drop-shadow(0 0 15px rgba(255, 215, 120, 0.8));
+  animation: streamDescent 3s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+@keyframes streamDescent {
+  0% { transform: translateY(-100%); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: translateY(120%); opacity: 0; }
+}
+
+.n-sculpt-wrapper {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  margin-top: 80px;
+}
+
+/* Responsive Scaling for Cinematic Logo Wrapper */
+@media (max-width: 768px) {
+  .n-sculpt-wrapper { width: 92vw; height: calc(92vw - 80px); }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .n-sculpt-wrapper { width: 75vw; height: calc(75vw - 80px); }
+}
+@media (min-width: 1025px) {
+  .n-sculpt-wrapper { width: 68vw; height: calc(68vh - 80px); }
+}
+
+.nexora-master-emblem {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease;
+}
+
+/* Step-by-Step Sculpting Traces */
+.n-ribbon-trace {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(245, 215, 127, 0.8), rgba(212, 175, 55, 0.2));
+  box-shadow: 0 0 25px rgba(245, 215, 127, 0.8);
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+}
+
+.n-ribbon-trace.left-stem {
+  left: 36%;
+  top: 18%;
+  width: 6px;
+  height: 0%;
+}
+
+.n-ribbon-trace.diagonal-swoop {
+  left: 38%;
+  top: 18%;
+  width: 5px;
+  height: 0%;
+  transform: rotate(38deg);
+  transform-origin: top left;
+}
+
+.n-ribbon-trace.right-stem {
+  right: 36%;
+  top: 18%;
+  width: 6px;
+  height: 0%;
+}
+
+.n-halo-ring {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 215, 127, 0.3);
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.25), inset 0 0 30px rgba(245, 215, 127, 0.15);
+  opacity: 0;
+  transform: scale(0.7) rotate(-20deg);
+  transition: all 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Metallic Light Reflection Sheen sweep */
+.n-metallic-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+/* =========================================================
+   PHASE PROGRESSIONS & LOGO FORMATION
+   ========================================================= */
+
+/* Phase 1: Particle Descent (Top -> Center) */
+.nexora-motion-stage.phase-1 .nexora-master-emblem {
+  opacity: 0.08;
+  transform: translateY(-40px) scale(0.92);
+  filter: blur(8px) brightness(0.6);
+}
+
+/* Phase 2: Golden Ribbon Formation */
+.nexora-motion-stage.phase-2 .nexora-master-emblem {
+  opacity: 0.25;
+  transform: translateY(-15px) scale(0.96);
+  filter: blur(4px) brightness(0.8);
+}
+.nexora-motion-stage.phase-2 .n-ribbon-trace.left-stem {
+  opacity: 0.9;
+  height: 64%;
+}
+
+/* Phase 3: Shaping Letter N Step-by-Step */
+.nexora-motion-stage.phase-3 .nexora-master-emblem {
+  opacity: 0.65;
+  transform: translateY(0px) scale(0.99);
+  filter: blur(1.5px) brightness(1.1);
+}
+.nexora-motion-stage.phase-3 .n-ribbon-trace.left-stem {
+  opacity: 1;
+  height: 64%;
+}
+.nexora-motion-stage.phase-3 .n-ribbon-trace.diagonal-swoop {
+  opacity: 1;
+  height: 72%;
+}
+.nexora-motion-stage.phase-3 .n-ribbon-trace.right-stem {
+  opacity: 1;
+  height: 64%;
+}
+.nexora-motion-stage.phase-3 .n-halo-ring {
+  opacity: 0.65;
+  transform: scale(0.95) rotate(0deg);
+}
+
+/* Phase 4: Full N Reveal & Metallic Shimmer */
+.nexora-motion-stage.phase-4 .nexora-master-emblem {
+  opacity: 1;
+  transform: translateY(0px) scale(1.02);
+  filter: blur(0px) drop-shadow(0 0 50px rgba(245, 215, 127, 0.75)) brightness(1.2);
+}
+.nexora-motion-stage.phase-4 .n-halo-ring {
+  opacity: 0.9;
+  transform: scale(1.04) rotate(15deg);
+}
+.nexora-motion-stage.phase-4 .n-metallic-sheen {
+  opacity: 1;
+  animation: metallicSweep 2s ease-in-out forwards;
+}
+
+@keyframes metallicSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Phase 5: Brand Lockup & Subtly Floating Reflections */
+.nexora-motion-stage.phase-5 .nexora-master-emblem {
+  opacity: 0.95;
+  transform: translateY(-4px) scale(1.0);
+  filter: drop-shadow(0 0 45px rgba(212, 175, 55, 0.6)) brightness(1.1);
+  animation: subtleFloat 4s ease-in-out infinite alternate;
+}
+
+@keyframes subtleFloat {
+  0% { transform: translateY(-4px) scale(1.0); }
+  100% { transform: translateY(6px) scale(1.02); }
+}
+
+/* Phase 6: Seamless Downward Dissolution (Bottom Exit -> Loop) */
+.nexora-motion-stage.phase-6 .nexora-master-emblem {
+  opacity: 0.15;
+  transform: translateY(45px) scale(0.95);
+  filter: blur(6px) brightness(0.7);
+  transition: all 1.4s ease-out;
+}
+.nexora-motion-stage.phase-6 .n-halo-ring {
+  opacity: 0.1;
+  transform: scale(1.2) translateY(30px);
+}
+
+/* =========================================================
+   LETTER-BY-LETTER TYPOGRAPHY & TAGLINE REVEAL
+   ========================================================= */
+
+.nexora-brand-lockup {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.nexora-letters {
+  display: flex;
+  gap: 22px;
+  letter-spacing: 12px;
+  font-family: Inter, "Cinzel", "Bodoni MT", serif;
+  font-size: clamp(24px, 3.2vw, 42px);
+  font-weight: 800;
+}
+
+.nexora-letters .letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(18px) scale(0.85);
+  color: #d4af37;
+  background: linear-gradient(180deg, #ffffff 10%, #f5d77f 60%, #b8860b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(245, 215, 127, 0.4));
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nexora-letters .letter.revealed {
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+  filter: drop-shadow(0 0 25px rgba(245, 215, 127, 0.85));
+}
+
+/* Elegant Upward Motion Tagline */
+.nexora-tagline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: clamp(9px, 1.1vw, 13px);
+  font-weight: 600;
+  letter-spacing: 5px;
+  color: #cfc8b8;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nexora-tagline.revealed {
+  opacity: 0.9;
+  transform: translateY(0px);
+}
+
+.nexora-tagline .sep {
+  color: #d4af37;
+  font-size: 8px;
+  opacity: 0.7;
+}
+
+/* Cinematic Phase Badge in Corner */
+.cinematic-timeline-badge {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(18, 18, 22, 0.65);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #f5d77f;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f5d77f;
+  box-shadow: 0 0 10px #f5d77f;
+  animation: pulseDot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.5; }
+}
+
+@media(max-width: 768px) {
+  .cinematic-timeline-badge {
+    top: 15px;
+    left: 15px;
+    font-size: 9px;
+    padding: 4px 10px;
+  }
+  .nexora-letters {
+    gap: 12px;
+    letter-spacing: 6px;
+  }
+}
+
+/* Floating Cinema Spotlight Mode Switcher Button */
+.cinema-mode-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 28px;
+  z-index: 1000;
+}
+
+.cinema-mode-toggle button {
+  background: rgba(18, 18, 22, 0.85);
+  backdrop-filter: blur(14px);
+  color: #f5d77f;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.25);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cinema-mode-toggle button:hover {
+  background: linear-gradient(135deg, #d4af37, #aa8014);
+  color: #000;
+  border-color: #f5d77f;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
+}
+
+.cinema-mode-toggle button.active {
+  background: #ffffff;
+  color: #09090b;
+  border-color: #ffffff;
+}
+
+/* Mode BG vs Mode Spotlight */
+.nexora-cinematic-container.mode-bg {
+  opacity: 0.88;
+}
+
+.nexora-cinematic-container.mode-spotlight {
+  opacity: 1;
+  z-index: 999;
+  pointer-events: auto;
+}
+
